@@ -4,10 +4,19 @@ using System.Collections;
 public class GameWorld : MonoBehaviour
 {
     public GameObject[] Asteroids;
+    public GameObject Explosion;
 
     void Start ()
 	{
-	    StartCoroutine(CreateAsteroids());
+	    //StartCoroutine(CreateAsteroids());
+	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Z))
+		{
+			Instantiate(Explosion, Vector3.left, Quaternion.identity);
+		}
 	}
 	
     private IEnumerator CreateAsteroids()

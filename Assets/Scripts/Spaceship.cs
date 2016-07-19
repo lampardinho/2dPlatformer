@@ -51,6 +51,7 @@ public class Spaceship : MonoBehaviour
     void OnCollisionEnter2D(Collision2D coll)
     {
         Debug.Log("collided with " + coll.gameObject.name);
+        ParticleManager.CreateDestroyParticles(coll.contacts[0].point);
         Destroy(gameObject);
     }
 }

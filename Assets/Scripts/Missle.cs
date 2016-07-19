@@ -7,7 +7,7 @@ public class Missle : MonoBehaviour
     private Collider2D _collider;
     private float _speed = 6;
 
-    void Start ()
+    void OnEnable ()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
