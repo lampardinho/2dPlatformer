@@ -3631,6 +3631,7 @@ GameObject:
   - 4: {fileID: 1244296576}
   - 114: {fileID: 1244296577}
   - 114: {fileID: 1244296578}
+  - 114: {fileID: 1244296579}
   m_Layer: 0
   m_Name: GameWorld
   m_TagString: Untagged
@@ -3680,6 +3681,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageParticles: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 2}
   DestroyParticles: {fileID: 100010, guid: 1bb36e3a44a56b547a4a6a12a99e2dca, type: 2}
+--- !u!114 &1244296579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244296575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d66e5d1d4ba53d42acdfac44acd4566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LaunchMissleSound: {fileID: 8300000, guid: d41abe8d6c92efe4eab141de98451c6d, type: 3}
+  ExplosionSound: {fileID: 8300000, guid: 7694375fcb1e79441b204371f4e65058, type: 3}
 --- !u!1 &1296888631
 GameObject:
   m_ObjectHideFlags: 0

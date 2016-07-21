@@ -44,12 +44,16 @@ public abstract class AbstractAsteroid : MonoBehaviour
         //todo get this value from missle
         _health--;
 
-        ParticleManager.CreateDamageParticles(coll.contacts[0].point);
+        SoundManager.MakeExplosionSound();
 
         if (_health <= 0)
         {
             gameObject.SetActive(false);//PoolManager.Despawn(gameObject);
             ParticleManager.CreateDestroyParticles(coll.contacts[0].point);
+        }
+        else
+        {
+            ParticleManager.CreateDamageParticles(coll.contacts[0].point);
         }
     }
 

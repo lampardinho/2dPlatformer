@@ -8,7 +8,7 @@ public class GameWorld : MonoBehaviour
 
     void Start ()
 	{
-	    //StartCoroutine(CreateAsteroids());
+	    StartCoroutine(CreateAsteroids());
 	}
 
 	void Update()

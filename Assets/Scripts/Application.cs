@@ -1,16 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Application : MonoBehaviour
 {
+    private static Application _instance;
 
-	// Use this for initialization
-	void Start () {
-	    
+    void Start ()
+    {
+	    DontDestroyOnLoad(this);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    public static void GameOver()
+    {
+        SceneManager.LoadScene("RestartMenu");
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
 }

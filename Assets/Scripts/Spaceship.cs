@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Spaceship : MonoBehaviour
@@ -11,9 +12,23 @@ public class Spaceship : MonoBehaviour
     private float _speedMultiplier = 0.1f;
     private float _offsetFromBorder = 1f;
 
+    // Cooldown in seconds between two shots
+    private float _shootingRate = 0.25f;
+
+    // Cooldown
+    private float _shootCooldown;
+
     private Rigidbody2D _rigidbody;
 
-	void Start ()
+    public bool CanAttack
+    {
+        get
+        {
+            return _shootCooldown <= 0f;
+        }
+    }
+
+    void Start ()
 	{
 	    _rigidbody = GetComponent<Rigidbody2D>();
 	}
@@ -24,14 +39,21 @@ public class Spaceship : MonoBehaviour
 	    _x = CrossPlatformInputManager.GetAxis("Horizontal");
 	    _y = CrossPlatformInputManager.GetAxis("Vertical");
 
-	    var isShooting = CrossPlatformInputManager.GetButtonDown("Shoot");
-	    if (isShooting)
+	    var isShooting = CrossPlatformInputManager.GetButton("Shoot");
+	    if (isShooting && CanAttack)
 	    {
-	        var missle = PoolManager.Spawn(BulletPrefab, _rigidbody.position, Quaternion.identity);
+            _shootCooldown = _shootingRate;
+            var missle = PoolManager.Spawn(BulletPrefab, _rigidbody.position, Quaternion.identity);
             missle.transform.SetParent(GameWorld.transform);
+            SoundManager.MakeLaunchMissleSound();
 	    }
 
-	}
+        if (_shootCooldown > 0)
+        {
+            _shootCooldown -= Time.deltaTime;
+        }
+        
+    }
 
     private void FixedUpdate()
     {
@@ -53,5 +75,7 @@ public class Spaceship : MonoBehaviour
         Debug.Log("collided with " + coll.gameObject.name);
         ParticleManager.CreateDestroyParticles(coll.contacts[0].point);
         Destroy(gameObject);
+
+        Application.GameOver();
     }
 }
