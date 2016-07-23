@@ -127,7 +127,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &286778490
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,20 +216,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 286778490}
---- !u!1001 &373866188
+--- !u!1001 &359157617
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1244296576}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 474578, guid: aedbf5b494d57c94b9e9e4bc5785e80d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.23
+      value: 2.47
       objectReference: {fileID: 0}
     - target: {fileID: 474578, guid: aedbf5b494d57c94b9e9e4bc5785e80d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.17
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 474578, guid: aedbf5b494d57c94b9e9e4bc5785e80d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -253,11 +253,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 474578, guid: aedbf5b494d57c94b9e9e4bc5785e80d, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 194664, guid: aedbf5b494d57c94b9e9e4bc5785e80d, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aedbf5b494d57c94b9e9e4bc5785e80d, type: 2}
@@ -313,7 +309,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 438860, guid: 58da18342ca79bd449b3513facf43169, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 160172, guid: 58da18342ca79bd449b3513facf43169, type: 2}
       propertyPath: m_Name
@@ -326,10 +322,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58da18342ca79bd449b3513facf43169, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &892907906 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 474578, guid: aedbf5b494d57c94b9e9e4bc5785e80d, type: 2}
-  m_PrefabInternal: {fileID: 373866188}
 --- !u!1 &1141611273
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +333,6 @@ GameObject:
   - 33: {fileID: 1141611279}
   - 64: {fileID: 1141611278}
   - 23: {fileID: 1141611277}
-  - 114: {fileID: 1141611276}
   - 114: {fileID: 1141611275}
   m_Layer: 0
   m_Name: Starfield near
@@ -374,19 +365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c763ec570af80f149a24e56f77954c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parralax: 5
-  FollowedGameObject: {fileID: 684087390}
---- !u!114 &1141611276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1141611273}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8524b36e437c4ce4e9927262afe6e2c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _parallax: 5
+  _followedGameObject: {fileID: 684087390}
 --- !u!23 &1141611277
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -461,7 +441,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 892907906}
   - {fileID: 2127508108}
   - {fileID: 684087395}
   m_Father: {fileID: 0}
@@ -609,8 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c763ec570af80f149a24e56f77954c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parralax: 8
-  FollowedGameObject: {fileID: 684087390}
+  _parallax: 8
+  _followedGameObject: {fileID: 684087390}
 --- !u!1 &1411973514
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +750,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1673490280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,4 +1213,4 @@ Transform:
   - {fileID: 1141611274}
   - {fileID: 1296888635}
   m_Father: {fileID: 1244296576}
-  m_RootOrder: 1
+  m_RootOrder: 0

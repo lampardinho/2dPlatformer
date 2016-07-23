@@ -1,9 +1,8 @@
 ﻿public class MediumAsteroid : AbstractAsteroid
 {
-    protected override void Init()
+    void OnEnable()
     {
-        base.Init();
-        _health = 4;
-        _moveSpeed = 3;
+        Health = 4;
+        MoveSpeed = 3;
     }
 }

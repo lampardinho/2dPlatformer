@@ -17,7 +17,7 @@ public class GameWorld : MonoBehaviour
         //spaceship.GetComponent<Spaceship>().GameWorld = gameObject;
         _isGameRunning = true;
         Ship.Init();
-        StartCoroutine(CreateAsteroids());
+        //StartCoroutine(CreateAsteroids());
 	}
 
     public void StopGame()
@@ -48,7 +48,7 @@ public class GameWorld : MonoBehaviour
 
         while (_isGameRunning)
         {
-            yield return new WaitForSeconds(Random.Range(3f, 5f));
+            yield return new WaitForSeconds(Random.Range(0.5f, 1f));
             var type = Random.Range(0, Asteroids.Length - 1);
             var position = new Vector3(rightBorder/* + Random.Range(1f, 5f)*/, Random.Range(bottomBorder + 1, topBorder - 1));
             var asteroid = PoolManager.Spawn(Asteroids[type], position, Quaternion.identity);

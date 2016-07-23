@@ -1,9 +1,8 @@
 ﻿public class BigAsteroid : AbstractAsteroid
 {
-    protected override void Init ()
+    void OnEnable ()
     {
-        base.Init();
-        _health = 1;
-        _moveSpeed = 2;
+        Health = 5;
+        MoveSpeed = 2;
     }
 }

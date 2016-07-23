@@ -15,11 +15,21 @@ public class ParticleManager : MonoBehaviour
 
     public static void CreateDamageParticles(Vector2 position)
     {
-        PoolManager.Spawn(_instance.DamageParticles, position, Quaternion.identity);
+        var particle = PoolManager.Spawn(_instance.DamageParticles, position, Quaternion.identity);
+        _instance.StartCoroutine(_instance.DespawnParticle(particle,
+            particle.GetComponentInChildren<ParticleSystem>().duration + particle.GetComponentInChildren<ParticleSystem>().startLifetime));
     }
 
     public static void CreateDestroyParticles(Vector2 position)
     {
-        PoolManager.Spawn(_instance.DestroyParticles, position, Quaternion.identity);
+        var particle = PoolManager.Spawn(_instance.DestroyParticles, position, Quaternion.identity);
+        _instance.StartCoroutine(_instance.DespawnParticle(particle,
+            particle.GetComponentInChildren<ParticleSystem>().duration + particle.GetComponentInChildren<ParticleSystem>().startLifetime));
+    }
+
+    private IEnumerator DespawnParticle(GameObject particle, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        PoolManager.Despawn(particle);
     }
 }

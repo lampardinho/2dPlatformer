@@ -11,7 +11,8 @@ public class Missle : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
-        _collider.enabled = true;
+        //_collider.enabled = true;
+        Debug.Log("OnEnable " + name);
     }
 	
 	void FixedUpdate ()
@@ -22,7 +23,7 @@ public class Missle : MonoBehaviour
     void OnCollisionEnter2D(Collision2D coll)
     {
         Debug.LogError("collided with " + coll.gameObject.name);
-        PoolManager.Despawn(gameObject);
+        gameObject.SetActive(false);
     }
 
     void OnBecameInvisible()
@@ -33,6 +34,7 @@ public class Missle : MonoBehaviour
 
     void OnDisable()
     {
-        _collider.enabled = false;
+        Debug.Log("OnDisable " + name);
+        //_collider.enabled = false;
     }
 }
