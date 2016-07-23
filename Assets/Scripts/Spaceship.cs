@@ -32,6 +32,11 @@ public class Spaceship : MonoBehaviour
 	{
 	    _rigidbody = GetComponent<Rigidbody2D>();
 	}
+
+    public void Init()
+    {
+        gameObject.SetActive(true);
+    }
 	
 	
 	void Update ()
@@ -74,7 +79,7 @@ public class Spaceship : MonoBehaviour
     {
         Debug.Log("collided with " + coll.gameObject.name);
         ParticleManager.CreateDestroyParticles(coll.contacts[0].point);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
         Application.GameOver();
     }
