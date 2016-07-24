@@ -1,15 +1,25 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class SingletonBehaviour : MonoBehaviour {
+namespace Assets.Scripts
+{
+    public class SingletonBehaviour<T> : MonoBehaviour where T: MonoBehaviour
+    {
+        private static T _instance;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        public static T Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<T>();
+                    if (_instance == null)
+                    {
+                        Debug.LogError("No " + typeof(T) + " Singleton found");
+                    }
+                }
+                return _instance;
+            }
+        }
+    }
 }

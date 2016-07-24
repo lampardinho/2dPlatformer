@@ -1,36 +1,30 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Application : MonoBehaviour
+namespace Assets.Scripts
 {
-    public Button RestartButton;
-    public GameObject GameControls;
-    public GameWorld World;
-
-    private static Application _instance;
-
-    void Start ()
+    public class Application : SingletonBehaviour<Application>
     {
-        _instance = this;
+        [SerializeField] private Button _restartButton;
 
-        StartGame();
+        [SerializeField] private GameWorld _world;
 
-        RestartButton.onClick.AddListener(StartGame);
-	}
+        private void Start()
+        {
+            StartGame();
+            _restartButton.onClick.AddListener(StartGame);
+        }
 
-    public static void GameOver()
-    {
-        _instance.World.StopGame();
-        _instance.RestartButton.gameObject.SetActive(true);
-        //_instance.GameControls.SetActive(false);
-    }
+        public void GameOver()
+        {
+            _world.StopGame();
+            _restartButton.gameObject.SetActive(true);
+        }
 
-    public static void StartGame()
-    {
-        _instance.RestartButton.gameObject.SetActive(false);
-        //_instance.GameControls.SetActive(true);
-        _instance.World.StartGame();
+        public void StartGame()
+        {
+            _restartButton.gameObject.SetActive(false);
+            _world.StartGame();
+        }
     }
 }

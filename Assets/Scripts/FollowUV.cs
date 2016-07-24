@@ -1,23 +1,23 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class FollowUV : MonoBehaviour
+namespace Assets.Scripts
 {
-    [SerializeField]
-    private float _parallax;
-
-    [SerializeField]
-    private GameObject _followedGameObject;
-
-	void Update ()
+    public class FollowUV : MonoBehaviour
     {
-		MeshRenderer mr = GetComponent<MeshRenderer>();
-		Material mat = mr.material;
-		Vector2 offset = mat.mainTextureOffset;
+        [SerializeField] private GameObject _followedGameObject;
 
-		offset.x = _followedGameObject.transform.position.x / transform.localScale.x / _parallax;
-		offset.y = _followedGameObject.transform.position.y / transform.localScale.y / _parallax;
+        [SerializeField] private float _parallax;
 
-		mat.mainTextureOffset = offset;
-	}
+        private void Update()
+        {
+            var mr = GetComponent<MeshRenderer>();
+            var mat = mr.material;
+            var offset = mat.mainTextureOffset;
+
+            offset.x = _followedGameObject.transform.position.x/transform.localScale.x/_parallax;
+            offset.y = _followedGameObject.transform.position.y/transform.localScale.y/_parallax;
+
+            mat.mainTextureOffset = offset;
+        }
+    }
 }

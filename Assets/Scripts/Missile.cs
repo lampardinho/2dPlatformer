@@ -1,30 +1,38 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Missile : MonoBehaviour
+namespace Assets.Scripts
 {
-    private Rigidbody2D _rigidbody;
-    private float _speed = 6;
+    public class Missile : MonoBehaviour
+    {
+        [SerializeField] private readonly float _damage = 1;
 
-    void OnEnable ()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
-	
-	void FixedUpdate ()
-    {
-        _rigidbody.MovePosition(_rigidbody.position + Vector2.right * _speed * Time.fixedDeltaTime);
-    }
+        [SerializeField] private readonly float _speed = 6;
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        //Debug.LogError("collided with " + coll.gameObject.name);
-        gameObject.SetActive(false);
-    }
+        private Rigidbody2D _rigidbody;
 
-    void OnBecameInvisible()
-    {
-        //Debug.Log("OnBecameInvisible " + name);
-        PoolManager.Despawn(gameObject);
+        public float Damage
+        {
+            get { return _damage; }
+        }
+
+        private void OnEnable()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        private void FixedUpdate()
+        {
+            _rigidbody.MovePosition(_rigidbody.position + Vector2.right*_speed*Time.fixedDeltaTime);
+        }
+
+        private void OnCollisionEnter2D(Collision2D coll)
+        {
+            gameObject.SetActive(false);
+        }
+
+        private void OnBecameInvisible()
+        {
+            PoolManager.Despawn(gameObject);
+        }
     }
 }

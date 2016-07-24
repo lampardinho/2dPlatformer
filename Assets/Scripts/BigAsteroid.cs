@@ -1,8 +1,11 @@
-﻿public class BigAsteroid : AbstractAsteroid
+﻿namespace Assets.Scripts
 {
-    void OnEnable ()
+    public class BigAsteroid : AbstractAsteroid
     {
-        Health = 5;
-        MoveSpeed = 2;
+        void OnEnable ()
+        {
+            Health = 5;
+            MoveSpeed = 2;
+        }
     }
 }

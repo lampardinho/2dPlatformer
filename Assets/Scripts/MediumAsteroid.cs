@@ -1,8 +1,11 @@
-﻿public class MediumAsteroid : AbstractAsteroid
+﻿namespace Assets.Scripts
 {
-    void OnEnable()
+    public class MediumAsteroid : AbstractAsteroid
     {
-        Health = 4;
-        MoveSpeed = 3;
+        private void OnEnable()
+        {
+            Health = 4;
+            MoveSpeed = 3;
+        }
     }
 }

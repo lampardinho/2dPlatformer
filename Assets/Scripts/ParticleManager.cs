@@ -1,28 +1,24 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class ParticleManager : MonoBehaviour
+namespace Assets.Scripts
 {
-    public GameObject DestroyParticles;
-
-    private static ParticleManager _instance;
-
-    void Start()
+    public class ParticleManager : SingletonBehaviour<ParticleManager>
     {
-        _instance = this;
-    }
+        [SerializeField] private GameObject _destroyParticles;
 
-    public static void CreateDestroyParticles(Vector2 position)
-    {
-        var particle = PoolManager.Spawn(_instance.DestroyParticles, position, Quaternion.identity);
-        particle.transform.SetParent(_instance.transform);
-        var particleSystem = particle.GetComponentInChildren<ParticleSystem>();
-        _instance.StartCoroutine(_instance.DespawnParticle(particle, particleSystem.duration + particleSystem.startLifetime));
-    }
+        public void CreateDestroyParticles(Vector2 position)
+        {
+            var particle = PoolManager.Spawn(_destroyParticles, position, Quaternion.identity);
+            particle.transform.SetParent(transform);
+            var particleSys = particle.GetComponentInChildren<ParticleSystem>();
+            StartCoroutine(DespawnParticle(particle, particleSys.duration + particleSys.startLifetime));
+        }
 
-    private IEnumerator DespawnParticle(GameObject particle, float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        PoolManager.Despawn(particle);
+        private IEnumerator DespawnParticle(GameObject particle, float duration)
+        {
+            yield return new WaitForSeconds(duration);
+            PoolManager.Despawn(particle);
+        }
     }
 }

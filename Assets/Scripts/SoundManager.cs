@@ -1,26 +1,21 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class SoundManager : MonoBehaviour
+namespace Assets.Scripts
 {
-    public AudioClip LaunchMissleSound;
-    public AudioClip ExplosionSound;
-
-    private static SoundManager _instance;
-
-    void Start()
+    public class SoundManager : SingletonBehaviour<SoundManager>
     {
-        _instance = this;
-    }
+        [SerializeField] private AudioClip _explosionSound;
 
-    public static void MakeLaunchMissleSound()
-    {
-        AudioSource.PlayClipAtPoint(_instance.LaunchMissleSound, Vector3.zero);
-    }
+        [SerializeField] private AudioClip _launchMissleSound;
 
-    public static void MakeExplosionSound()
-    {
-        AudioSource.PlayClipAtPoint(_instance.ExplosionSound, Vector3.zero);
-    }
+        public void MakeLaunchMissleSound()
+        {
+            AudioSource.PlayClipAtPoint(_launchMissleSound, Vector2.zero);
+        }
 
+        public void MakeExplosionSound()
+        {
+            AudioSource.PlayClipAtPoint(_explosionSound, Vector2.zero);
+        }
+    }
 }

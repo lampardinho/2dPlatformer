@@ -156,8 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf2c445ef8f56f40915e6b81a81d230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameWorld: {fileID: 0}
-  BulletPrefab: {fileID: 129130, guid: acf9e05f79bf59347bfaa89a9790181a, type: 2}
+  _missilePrefab: {fileID: 129130, guid: acf9e05f79bf59347bfaa89a9790181a, type: 2}
+  _offsetFromBorder: 1
+  _shootingRate: 0.25
+  _speedMultiplier: 5
 --- !u!135 &13572198
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -112,9 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300918afd9f42344f82c7889dd24cfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RestartButton: {fileID: 1673490281}
-  GameControls: {fileID: 2036858522}
-  World: {fileID: 1244296577}
+  _restartButton: {fileID: 1673490281}
+  _world: {fileID: 1244296577}
 --- !u!4 &137478777
 Transform:
   m_ObjectHideFlags: 0
@@ -273,10 +272,6 @@ Prefab:
       propertyPath: m_Name
       value: Spaceship
       objectReference: {fileID: 0}
-    - target: {fileID: 11482528, guid: 58da18342ca79bd449b3513facf43169, type: 2}
-      propertyPath: GameWorld
-      value: 
-      objectReference: {fileID: 1244296575}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58da18342ca79bd449b3513facf43169, type: 2}
   m_IsPrefabParent: 0
@@ -323,8 +318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c763ec570af80f149a24e56f77954c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parallax: 5
   _followedGameObject: {fileID: 684087390}
+  _parallax: 5
 --- !u!23 &1141611277
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -414,8 +409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bff9594382237439ae924a3a6059dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ship: {fileID: 684087393}
-  Asteroids:
+  _ship: {fileID: 684087393}
+  _asteroidPrefabs:
   - {fileID: 194664, guid: aedbf5b494d57c94b9e9e4bc5785e80d, type: 2}
   - {fileID: 194664, guid: f7c29eef2f3f2cc468d510bf649556d5, type: 2}
   - {fileID: 194664, guid: 61ec27cf016310c458f03bd64b3e0c8c, type: 2}
@@ -430,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e3f500da3a58e489709fe066b1d5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyParticles: {fileID: 100010, guid: 1bb36e3a44a56b547a4a6a12a99e2dca, type: 2}
+  _destroyParticles: {fileID: 100010, guid: 1bb36e3a44a56b547a4a6a12a99e2dca, type: 2}
 --- !u!114 &1244296579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,8 +437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d66e5d1d4ba53d42acdfac44acd4566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LaunchMissleSound: {fileID: 8300000, guid: d41abe8d6c92efe4eab141de98451c6d, type: 3}
-  ExplosionSound: {fileID: 8300000, guid: 7694375fcb1e79441b204371f4e65058, type: 3}
+  _explosionSound: {fileID: 8300000, guid: 7694375fcb1e79441b204371f4e65058, type: 3}
+  _launchMissleSound: {fileID: 8300000, guid: d41abe8d6c92efe4eab141de98451c6d, type: 3}
 --- !u!1 &1296888631
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +450,6 @@ GameObject:
   - 33: {fileID: 1296888634}
   - 64: {fileID: 1296888633}
   - 23: {fileID: 1296888632}
-  - 114: {fileID: 1296888636}
   - 114: {fileID: 1296888637}
   m_Layer: 0
   m_Name: Starfield far
@@ -522,17 +516,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2127508108}
   m_RootOrder: 1
---- !u!114 &1296888636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1296888631}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8524b36e437c4ce4e9927262afe6e2c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1296888637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,8 +527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c763ec570af80f149a24e56f77954c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parallax: 8
   _followedGameObject: {fileID: 684087390}
+  _parallax: 8
 --- !u!1 &1411973514
 GameObject:
   m_ObjectHideFlags: 0
