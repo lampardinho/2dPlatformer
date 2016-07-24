@@ -24,13 +24,13 @@ public class Application : MonoBehaviour
     {
         _instance.World.StopGame();
         _instance.RestartButton.gameObject.SetActive(true);
-        _instance.GameControls.SetActive(false);
+        //_instance.GameControls.SetActive(false);
     }
 
     public static void StartGame()
     {
         _instance.RestartButton.gameObject.SetActive(false);
-        _instance.GameControls.SetActive(true);
+        //_instance.GameControls.SetActive(true);
         _instance.World.StartGame();
     }
 }

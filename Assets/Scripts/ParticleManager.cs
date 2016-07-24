@@ -16,6 +16,7 @@ public class ParticleManager : MonoBehaviour
     public static void CreateDamageParticles(Vector2 position)
     {
         var particle = PoolManager.Spawn(_instance.DamageParticles, position, Quaternion.identity);
+        particle.transform.SetParent(_instance.transform);
         _instance.StartCoroutine(_instance.DespawnParticle(particle,
             particle.GetComponentInChildren<ParticleSystem>().duration + particle.GetComponentInChildren<ParticleSystem>().startLifetime));
     }
@@ -23,6 +24,7 @@ public class ParticleManager : MonoBehaviour
     public static void CreateDestroyParticles(Vector2 position)
     {
         var particle = PoolManager.Spawn(_instance.DestroyParticles, position, Quaternion.identity);
+        particle.transform.SetParent(_instance.transform);
         _instance.StartCoroutine(_instance.DespawnParticle(particle,
             particle.GetComponentInChildren<ParticleSystem>().duration + particle.GetComponentInChildren<ParticleSystem>().startLifetime));
     }

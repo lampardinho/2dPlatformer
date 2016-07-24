@@ -36,6 +36,8 @@ public class Spaceship : MonoBehaviour
     public void Init()
     {
         gameObject.SetActive(true);
+        transform.position = Vector2.zero;
+        transform.rotation = Quaternion.identity;
     }
 	
 	
@@ -77,7 +79,7 @@ public class Spaceship : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        Debug.Log("collided with " + coll.gameObject.name);
+        //Debug.Log("collided with " + coll.gameObject.name);
         ParticleManager.CreateDestroyParticles(coll.contacts[0].point);
         gameObject.SetActive(false);
 

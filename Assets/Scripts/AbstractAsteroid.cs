@@ -45,7 +45,7 @@ public abstract class AbstractAsteroid : MonoBehaviour
         }
         else
         {
-            ParticleManager.CreateDamageParticles(coll.contacts[0].point);
+            //ParticleManager.CreateDamageParticles(coll.contacts[0].point);
         }
     }
 }
