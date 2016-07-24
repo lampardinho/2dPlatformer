@@ -6,10 +6,9 @@ public class GameWorld : MonoBehaviour
 {
     public Spaceship Ship;
     public GameObject[] Asteroids;
-    public GameObject Explosion;
 
-    private bool _isGameRunning = false;
-    private List<GameObject> _spawnedAsteroids = new List<GameObject>();
+    private bool _isGameRunning;
+    private readonly List<GameObject> _spawnedAsteroids = new List<GameObject>();
 
     public void StartGame ()
     {
